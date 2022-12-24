@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+<h1 class="title logout">Be Well</h1>
+<section class="reg_form">
+    <p class="logged_out">Click Here to <a href="{% url 'meditation:login' %}">Login</a></p>
+</section>
+{% endblock %}

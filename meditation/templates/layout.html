@@ -1,0 +1,71 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Melete</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta property="og:title" content="Meditation">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="">
+        <meta property="og:url" content="https://melete.com">
+        <meta property="og:description" content="Melete, a mediation app">
+        <meta property="og:local" content="en_US">
+        <meta property="og:site_name" content="Melete">
+        <meta name="keywords" content="Meditation Mindfulness Focus">
+        <meta name="author" content="Paul Black">
+
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js" type="text/javascript"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Lobster&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if request.user.is_authenticated %}
+            <nav class="navbar">
+                <a class="logo" href="{% url 'meditation:index' %}">Melete</a>
+
+
+                <ul class="nav_elements">
+                    <li class="nav_item"><a class="nav_elem" href="{% url 'meditation:meditate' %}">Meditate</a></li>
+                    <li class="nav_item"><a class="nav_elem" href="{% url 'meditation:history' %}">History</a></li>
+                    <li class="nav_item"><a class="nav_elem" href="{% url 'meditation:logout' %}">Logout</a></li>
+                </ul>
+                <div class="hamburger_menu" id="mobile_menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                </div>
+            </nav>
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+            <header>
+                    <h3>
+                        <span class="greeting">Good Morning</span>
+                        <span class="user_greet">&nbsp{{ request.user| title }}</span>
+                    </h3>
+            </header>
+        {% endif %}
+            {% block main %}{% endblock %}
+
+        {% if request.user.is_authenticated %}
+            <footer class="footer">
+                <a href="#" class="foot_link">Melete</a>
+                <a href="#" class="foot_link">&#169Melete 2022</a>
+                <a href="#" class="foot_link">Attributes</a>
+                <p href="#" class="foot_link">Be Well</p>
+            </footer>
+        {% endif %}
+    <script src="{% static 'app.js' %}"></script>
+    </body>
+</html>

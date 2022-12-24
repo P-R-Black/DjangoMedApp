@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}box
+
+{% block main %}
+<section class="table_section">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="table_head">Date</th>
+                <th class="table_head">Mood Pre Meditation</th>
+                <th class="table_head">Meditation Soundscape</th>
+                <th class="table_head">Length of Meditation</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for history in user_history %}
+            <tr class="table_row">
+                <td class="table_data">{{ history.date_of_meditation }}</td>
+                <td class="table_data table_moods">{{ history.moods_before_meditation |slice:", " }}</td>
+                <td class="table_data">{{ history.song_name }}</td>
+                <td class="table_data">{{ history.meditation_duration }} Minutes</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

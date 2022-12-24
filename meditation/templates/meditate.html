@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Meditate
+{% endblock %}box
+
+{% block main %}
+<section class="meditation_section">
+    <div class="box_four">
+        <div id="mood_box" class="mood_box">
+            <div class="current_mood">{{ new_moods }}</div>
+        </div>
+        <div class="sound_box">
+            <audio class="meditation_choice" id="myAudio"  src="/media/med_sounds/meditative_lofi.m4a"></audio>
+            <div class="current_sound">Meditative Lofi</div>
+        </div>
+
+
+        <div class="time_box">
+            <div data-time="300" class="select_time">5 Minutes</div>
+            <h3 class="time_display">0:00</h3>
+            <button class="start_meditation play">Start Timer</button>
+        </div>
+    </div>
+</section>
+{% endblock %}

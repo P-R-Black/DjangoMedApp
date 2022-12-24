@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <h1 class="title">Melete</h1>
+    <h3 class="tag">For Mindfulness</h3>
+    <section class="reg_form">
+        <form action="" class="reg_input" method="POST">
+            {% csrf_token %}
+             <div>
+                <input autocomplete="off" autofocus id="reg_user" class="username" name="username" placeholder="Username" type="text">
+            </div>
+            <div>
+                <input name="password" id="password" class="password" placeholder="Password" type="password">
+            </div>
+            <input id="login_submit" type="submit" value="Login">
+            {% for message in messages %}
+            <p class="login_message">{{ message }}</p>
+            {% endfor %}
+            <p>Click Here to <a href="{% url 'meditation:register' %}">Register</a></p>
+        </form>
+    </section>
+{% endblock %}
+

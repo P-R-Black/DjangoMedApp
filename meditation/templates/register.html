@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h1 class="title">Melete</h1>
+    <h3 class="tag">For Mindfulness</h3>
+    <section class="reg_form">
+        <form action="" class="reg_input" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                {{ field.label }}
+                {{ field }}
+            </div>
+             <div>
+                {{ field.email }}
+            </div>
+            <div>
+                {{ field.date_of_birth }}
+            </div>
+            <div>
+                {{ field.password1 }}
+            </div>
+            <div>
+                {{ field.password2 }}
+            </div>
+            {% endfor %}
+            <input id="input_submit" type="submit" name="Create User" value="Register">
+            <p class="reg_errors">{{ form.errors }}</p>
+            <p>Click Here to <a href="{% url 'meditation:login' %}">Login</a></p>
+        </form>
+
+    </section>
+{% endblock %}

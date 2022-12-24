@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}box
+
+{% block main %}
+
+<section class="main_section">
+
+    <div class="box box_one">
+        <h4 class="block_title">How Are You Feeling Today</h4>
+        {% for m in moods  %}
+        <div class="moods">
+            <button class="mood_btn" name="the_mood" type="submit">{{ m | capfirst }}</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="box box_two">
+        <h4 class="block_title">Background Noise</h4>
+        {% for s in sounds %}
+        <div class="sounds">
+            <button class="sound_btn" data-sound="{{ s.meditation_sounds }}" type="submit">
+                {{ s.name }}
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="box box_three">
+        <h4 class="block_title">Time of Meditation</h4>
+        <div class="times">
+            <button data-time="300" class="time_btn" type="submit">5 Minutes</button>
+            <button data-time="600" class="time_btn" type="submit">10 Minutes</button>
+            <button data-time="900" class="time_btn" type="submit">15 Minutes</button>
+            <button data-time="1200" class="time_btn" type="submit">20 Minutes</button>
+            <button data-time="1500" class="time_btn" type="submit">25 Minutes</button>
+            <button data-time="1800" class="time_btn" type="submit">30 Minutes</button>
+            <button data-time="2100" class="time_btn" type="submit">35 Minutes</button>
+            <button data-time="2400" class="time_btn" type="submit">40 Minutes</button>
+            <button data-time="2700" class="time_btn" type="submit">45 Minutes</button>
+            <button data-time="3000" class="time_btn" type="submit">50 Minutes</button>
+            <button data-time="3300" class="time_btn" type="submit">55 Minutes</button>
+            <button data-time="3600" class="time_btn" type="submit">60 Minutes</button>
+        </div>
+    </div>
+</section>
+
+<section class="meditation_section">
+    <form class="box_four">
+        <div class="mood_box">
+            <ul id="unordered_mood">
+            </ul>
+        </div>
+
+        <div class="sound_box">
+            <audio class="meditation_choice" id="myAudio"  src="/media/med_sounds/meditative_lofi.m4a"></audio>
+            <div class="current_sound">Meditative Lofi</div>
+            <audio class="end_of_mediation" id="meditation_end" src="/media/start_stop_sounds/The_Bell.m4a"></audio>
+        </div>
+
+
+        <div class="time_box">
+            <div data-time="300" class="select_time">5 Minutes</div>
+            <h3 class="time_display">0:00</h3>
+            <button class="start_meditation play">Start Timer</button>
+            {% csrf_token %}
+        </div>
+    </form>
+</section>
+
+{% endblock %}
