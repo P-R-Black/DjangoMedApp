@@ -50,7 +50,7 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
     let volume_two = document.querySelector('.end_of_mediation').volume;
     document.querySelector('.end_of_mediation').volume_two = 0.05;
 
-    let fakeDuration = 10; //300
+    let fakeDuration = 300;
     let duration = 0;
 
     song.autoplay = false;
@@ -98,6 +98,7 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
             li = document.createElement("li");
             ul.appendChild(li).classList.add('current_mood');
             const currMoods = document.querySelector('.current_mood');
+            li.setAttribute('onclick','removeLi()')
             li.textContent = currMoods.textContent
             currMoods.textContent = moodMove.innerHTML;
             document.getElementsByTagName('button').disabled = true;
@@ -114,6 +115,12 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
             });
         });
 
+    }
+
+    function removeLi(){
+        $('li').dblclick(function() {
+        $(this).remove();
+	    });
     }
 
     // Select Time
