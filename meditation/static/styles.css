@@ -82,8 +82,8 @@ a {
 
 /*======================== NAVIGATION ================================*/
 
-.greeting .user_greet {
-    padding-top: 1.5rem;
+header h3 span {
+    padding-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -227,8 +227,9 @@ input#login_submit {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
     max-height: auto; /*20rem; */
     max-width: 20rem; /* 20rem; */
+    max-width: -webkit-max-content: 25rem;
+    padding: 0 .25rem .25rem .25rem;
 }
-
 
 
 .box_one {
@@ -251,9 +252,8 @@ input#login_submit {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
-    max-height: auto; /*20rem; */
-    max-width: auto; /* 20rem; */
-
+    max-height: auto; /* 20rem; */
+    max-width: 30rem;
 }
 
 
@@ -308,8 +308,6 @@ input#login_submit {
 }
 
 
-
-
 .current_mood {
     background-color: #EAE7E2;
     border: 1px solid #270f36;
@@ -321,7 +319,12 @@ input#login_submit {
     margin: .25rem 0 0 .75rem;
     max-width: auto;
 
+    cursor: pointer;
 
+}
+
+.unbothered_mood {
+    cursor: pointer;
 }
 
 .sound_box{
@@ -332,9 +335,17 @@ input#login_submit {
     font-weight: bold;
     margin: 1rem 2rem 0rem 2rem;
     padding: 1px 16px 1px 16px;
+    text-align: center;
 }
 
+.select_time {
+    display: flex;
+    justify-content: center;
+    font-size: .85rem;
+    padding-left: 8%;
+    width: 7rem;
 
+}
 .time_box {
     align-items: center;
     display: flex;
@@ -345,6 +356,7 @@ input#login_submit {
 
 .time_display {
     font-size: 1.75rem;
+
 }
 
 
@@ -357,29 +369,14 @@ input#login_submit {
     cursor: pointer;
 }
 
-.test {
-    height: 50px;
-    width: 100px;
-}
-
-.test_button {
-    height: 100px;
-    width: 100px;
-    background-color: var(--main-nav-color);
-    border: 3px solid var(--main-text-color);
-    box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.9);
-    border-radius: .50rem;
-    color: #000000;
-    font-size: .85rem;
-    margin-top: 1rem;
-}
 /*======================== BOXES ================================*/
 
 /*======================== HISTORY ===============================*/
 .table_section {
     display: flex;
+    height: 100vh;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 10rem;
 }
 
 
@@ -387,6 +384,7 @@ input#login_submit {
     border-collapse: collapse;
     margin-top: 1rem;
     max-width: 100%;
+    padding-bottom: 2rem;
 
 }
 
@@ -403,6 +401,12 @@ input#login_submit {
 
 .table tbody tr:nth-child(odd){
     background-color: #B6B4C2;
+}
+
+.ack {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 /*======================== HISTORY ===============================*/
@@ -427,6 +431,14 @@ footer p {
 
 
 /*======================== FOOTER ===============================*/
+
+
+
+/*======================== MEDIA QUERY ===============================*/
+
+/*======================== MEDIA QUERY ===============================*/
+
+/*======================== MEDIA QUERY ===============================*/
 
 @media(max-width:768px){
     .logo {
@@ -484,7 +496,59 @@ footer p {
     header h3 span {
         margin-top: 1.5rem;
 }
+     /*======================== Boxex ===============================*/
+    .box {
+        max-height: auto; /*20rem; */
+        max-width: 20rem; /* 20rem; */
+}
 
+    .box_four {
+        max-height: auto; /* 20rem; */
+        max-width: 20rem;
+}
+
+    .mood_box {
+        margin: 0 0 0 16px;
+        padding: 0 0 0 0;
+
+    }
+
+    .current_mood {
+        font-size: .75rem;
+    }
+
+    .sound_box {
+        font-size: 1rem;
+        margin: 0 1rem 0 1rem;
+        max-width: 10rem;
+        padding: 0 .5rem 0 .5rem;
+    }
+
+    .select_time {
+        display: flex;
+        justify-content: center;
+        font-size: .85rem;
+        padding-left: 8%;
+        width: 7rem;
+
+    }
+    .time_box {
+        gap: 1rem;
+
+    }
+
+    .time_display {
+        display: flex;
+        justify-content: center;
+        font-size: 1.45rem;
+    }
+
+    .start_meditation {
+        font-size: .65rem;
+        padding: 1px 4px 1px 4px;
+    }
+
+    /*========================= Boxex ================================*/
     /*======================== HISTORY ===============================*/
 
     .table {
@@ -522,10 +586,7 @@ footer p {
         font-size: 1rem,
         font-weight: bold;
     }
-
     /*======================== HISTORY ===============================*/
-
-
 
 
 

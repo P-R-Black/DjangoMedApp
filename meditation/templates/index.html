@@ -7,12 +7,11 @@
 {% block main %}
 
 <section class="main_section">
-
     <div class="box box_one">
         <h4 class="block_title">How Are You Feeling Today</h4>
         {% for m in moods  %}
         <div class="moods">
-            <button class="mood_btn" name="the_mood" type="submit">{{ m | capfirst }}</button>
+            <button class="mood_btn active" name="the_mood" type="submit">{{ m | capfirst }}</button>
         </div>
         {% endfor %}
     </div>
@@ -48,7 +47,7 @@
 </section>
 
 <section class="meditation_section">
-    <form class="box_four">
+    <form class="box box_four">
         <div class="mood_box">
             <ul id="unordered_mood">
             </ul>
@@ -56,7 +55,7 @@
 
         <div class="sound_box">
             <audio class="meditation_choice" id="myAudio"  src="/media/med_sounds/meditative_lofi.m4a"></audio>
-            <div class="current_sound">Meditative Lofi</div>
+                <div class="current_sound">Meditative Lofi</div>
             <audio class="end_of_mediation" id="meditation_end" src="/media/start_stop_sounds/The_Bell.m4a"></audio>
         </div>
 

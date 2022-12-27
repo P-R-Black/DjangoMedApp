@@ -48,8 +48,7 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
     document.querySelector('.meditation_choice').volume = 0.5;
 
     let volume_two = document.querySelector('.end_of_mediation').volume;
-    document.querySelector('.end_of_mediation').volume_two = 0.1;
-
+    document.querySelector('.end_of_mediation').volume_two = 0.05;
 
     let fakeDuration = 10; //300
     let duration = 0;
@@ -66,7 +65,6 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
         soundBtn.src = this.getAttribute('data-sound');
         console.log('soundBtn:', soundBtn.src)
         newSong.src = '/../media/' + soundBtn.src
-        // console.log('newSong:', newSong.src)
             })
         })
         return newSong.src
@@ -87,6 +85,7 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
     play.addEventListener("click", function(e) {
         e.preventDefault()
   	    playAudio(song);
+
     });
 
 
@@ -94,21 +93,28 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
     const selectMood = () => {
         moods.forEach(moodMove => {
         moodMove.addEventListener('click', function(){
-        li = document.createElement("li")
-        ul.appendChild(li).classList.add('current_mood')
-        const currMoods = document.querySelector('.current_mood');
-        li.textContent = currMoods.textContent
-        currMoods.textContent = moodMove.innerHTML;
 
-        if (ul.childNodes.length > 6) {
-            ul.removeChild(ul.firstChild);
+        if (moodMove.classList.toggle('active') == false){
+            li = document.createElement("li");
+            ul.appendChild(li).classList.add('current_mood');
+            const currMoods = document.querySelector('.current_mood');
+            li.textContent = currMoods.textContent
+            currMoods.textContent = moodMove.innerHTML;
+            document.getElementsByTagName('button').disabled = true;
+        } else {
+            const removeMood = document.querySelector('.current_mood')
+  	        removeMood.remove()
+        }
+
+
+        if (ul.childNodes.length > 5) {
+            ul.removeChild(ul.childNodes[6]);
             alert('Max is 5')
-                }
+        }
             });
         });
 
     }
-
 
     // Select Time
     const theSelectedTime = () => {
@@ -135,17 +141,16 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
                 timeDisplay.textContent = `${minutes}:${seconds}`;
             }
 
-            if (currentTime >= fakeDuration) {
-                song.pause();
-                song.currentTime = 0;
-                ending.play();
-                sendPost();
+        if (currentTime >= fakeDuration) {
+            song.pause();
+            song.currentTime = 0;
+            ending.play();
+            sendPost();
             }
 
         }
 
     }
-
 
 const moodSummary = () => {
     let ul = document.getElementById('unordered_mood');
@@ -210,11 +215,12 @@ const sendPost = () => {
     success: function(res){
                 }
             })
-        }); // timer countdown, that should allow post request after timer done
+        });
     });
 }
 
-selectSound()
-selectMood()
-theSelectedTime()
-timerCountdown()
+setGreeting();
+selectSound();
+selectMood();
+theSelectedTime();
+timerCountdown();

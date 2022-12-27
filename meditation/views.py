@@ -56,16 +56,9 @@ def logout_user(request):
 @login_required(login_url='login')
 def index_page(request, category_slug=None):
     sounds = Soundscape.objects.all()
-
-    category = None
-    categories = Category.objects.all()
     moods = Mood.objects.all()
 
-    if category_slug:
-        category = get_object_or_404(Category)
-        moods = moods.filter(category=category)
-
-    return render(request, 'index.html', {'sounds': sounds, 'moods': moods, 'categories': categories})
+    return render(request, 'index.html', {'sounds': sounds, 'moods': moods})
 
 
 @login_required(login_url='login')
@@ -110,6 +103,13 @@ def history_page(request):
     user_id = request.user.id
     print('user_id', user_id)
     user_history = UserSession.objects.filter(user_id=user_id).values()
-    print('user_history', user_history)
 
-    return render(request, 'history.html', {'user_history': user_history})
+    text_user_history = UserSession.objects.filter(user_id=user_id)
+    print('text_user_history', text_user_history)
+
+    return render(request, 'history.html', {'user_history': user_history}
+                  )
+
+
+def attributes_page(request):
+    return render(request, 'attributes.html')

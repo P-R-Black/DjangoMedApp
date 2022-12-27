@@ -6,13 +6,17 @@
 
 {% block main %}
 <section class="meditation_section">
-    <div class="box_four">
-        <div id="mood_box" class="mood_box">
-            <div class="current_mood">{{ new_moods }}</div>
+    <form class="box box_four">
+        <div class="mood_box">
+            <ul id="unordered_mood">
+                <li class="current_mood">{{ new_moods }}</li>
+            </ul>
         </div>
+
         <div class="sound_box">
             <audio class="meditation_choice" id="myAudio"  src="/media/med_sounds/meditative_lofi.m4a"></audio>
-            <div class="current_sound">Meditative Lofi</div>
+                <div class="current_sound">Meditative Lofi</div>
+            <audio class="end_of_mediation" id="meditation_end" src="/media/start_stop_sounds/The_Bell.m4a"></audio>
         </div>
 
 
@@ -20,7 +24,8 @@
             <div data-time="300" class="select_time">5 Minutes</div>
             <h3 class="time_display">0:00</h3>
             <button class="start_meditation play">Start Timer</button>
+            {% csrf_token %}
         </div>
-    </div>
+    </form>
 </section>
 {% endblock %}

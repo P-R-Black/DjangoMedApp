@@ -51,7 +51,7 @@
         {% if request.user.is_authenticated %}
             <header>
                     <h3>
-                        <span class="greeting">Good Morning</span>
+                        <span class="greeting"></span>
                         <span class="user_greet">&nbsp{{ request.user| title }}</span>
                     </h3>
             </header>
@@ -60,10 +60,10 @@
 
         {% if request.user.is_authenticated %}
             <footer class="footer">
-                <a href="#" class="foot_link">Melete</a>
-                <a href="#" class="foot_link">&#169Melete 2022</a>
-                <a href="#" class="foot_link">Attributes</a>
-                <p href="#" class="foot_link">Be Well</p>
+                <a href="{% url 'meditation:index' %}" class="foot_link">Melete</a>
+                <a href="{% url 'meditation:index' %}" class="foot_link">&#169Melete 2022</a>
+                <a href="{% url 'meditation:attributes' %}" class="foot_link">Attributes</a>
+                <p class="foot_link">Be Well</p>
             </footer>
         {% endif %}
     <script src="{% static 'app.js' %}"></script>

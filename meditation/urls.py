@@ -6,6 +6,7 @@ app_name = 'meditation'
 urlpatterns = [
     path('', views.index_page, name='index'),
     path('history/', views.history_page, name='history'),
+    path('attributes/', views.attributes_page, name='attributes'),
     path('ajax_test/', views.ajax_test, name='ajax_test'),
     path('meditate/', views.meditate_page, name='meditate'),
     path('register/', views.register_user, name='register'),
