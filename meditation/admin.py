@@ -1,16 +1,11 @@
 from django.contrib import admin
-#from .models import Patronus, Soundscape, UserHistory
 from django.contrib.auth.models import User
-
 from .models import Soundscape, StopStartSounds, Category, Mood
 
 
 # Register your models here.
-# admin.site.register(Patronus)
 
 # @admin.register(User)
-
-# @admin.register)
 class UserProfile:
     list_display = ['date_of_birth']
 

@@ -20,9 +20,7 @@ def register_user(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            print(f'user: {user}')
             messages.success(request, f'Account Successfully Created for {user}')
-            print('messages:', messages.success(request, f'Account Successfully Created for {user}'))
             return render(request, 'login.html')
 
     context = {'form': form}
@@ -99,17 +97,14 @@ def ajax_test(request):
         return HttpResponseBadRequest('Invalid Request')
 
 
+@login_required(login_url='login')
 def history_page(request):
     user_id = request.user.id
-    print('user_id', user_id)
     user_history = UserSession.objects.filter(user_id=user_id).values()
 
-    text_user_history = UserSession.objects.filter(user_id=user_id)
-    print('text_user_history', text_user_history)
-
-    return render(request, 'history.html', {'user_history': user_history}
-                  )
+    return render(request, 'history.html', {'user_history': user_history})
 
 
+@login_required(login_url='login')
 def attributes_page(request):
     return render(request, 'attributes.html')

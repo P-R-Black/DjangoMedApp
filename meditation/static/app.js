@@ -12,11 +12,12 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
     navElements.classList.toggle("active");
 }))
 
-// Get Time of Day
+
+    // Get Time of Day
     const setGreeting = () => {
-        const greeting = document.querySelector('.greeting');
-        let today = new Date();
-        let hour = today.getHours();
+        var greeting = document.getElementById('greeting');
+        var today = new Date();
+        var hour = today.getHours();
         if (hour < 12){
             greeting.textContent = "Good Morning"
         } else if(hour < 18 ){
@@ -25,6 +26,9 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
             greeting.textContent = "Good Evening"
         }
 }
+
+setGreeting();
+
 
     const song = document.querySelector('.meditation_choice');
     const ending = document.querySelector('.end_of_mediation');
@@ -102,9 +106,6 @@ const test = document.querySelectorAll(".nav_elem").forEach(n => n.addEventListe
             li.textContent = currMoods.textContent
             currMoods.textContent = moodMove.innerHTML;
             document.getElementsByTagName('button').disabled = true;
-        } else {
-            const removeMood = document.querySelector('.current_mood')
-  	        removeMood.remove()
         }
 
 
@@ -210,7 +211,7 @@ const sendPost = () => {
     method: 'POST',
     headers: {
     "X-Requested-With": "XMLHttpRequest",
-    "X-CSRFToken": getCookie("csrftoken"),  // don't forget to include the 'getCookie' function
+    "X-CSRFToken": getCookie("csrftoken"),
   },
     credentials: "same-origin",
     data: {
@@ -226,7 +227,7 @@ const sendPost = () => {
     });
 }
 
-setGreeting();
+
 selectSound();
 selectMood();
 theSelectedTime();

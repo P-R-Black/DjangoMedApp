@@ -50,13 +50,14 @@
 
         {% if request.user.is_authenticated %}
             <header>
-                    <h3>
-                        <span class="greeting"></span>
-                        <span class="user_greet">&nbsp{{ request.user| title }}</span>
-                    </h3>
+                <h3>
+                    <span id="greeting"></span>
+                    <span class="user_greet">&nbsp{{ request.user| title }}</span>
+                </h3>
             </header>
         {% endif %}
-            {% block main %}{% endblock %}
+
+        {% block main %}{% endblock %}
 
         {% if request.user.is_authenticated %}
             <footer class="footer">

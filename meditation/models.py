@@ -58,12 +58,3 @@ class Mood(models.Model):
 
     def __str__(self):
         return self.mood
-
-
-
-# superuser
-# paulblack
-# !IceKiss!8
-
-# palo -> olap1990
-# tony -> IronMan123

@@ -82,10 +82,6 @@ a {
 
 /*======================== NAVIGATION ================================*/
 
-header h3 span {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
-}
 
 
 h1 {
@@ -111,10 +107,9 @@ h1, h3 {
 
 h3 {
     font-size: 2.25rem;
-    margin: 0 0 1.5rem 0;
+    margin: 1.5rem 0 1.5rem 0;
     padding: 0 0 0 0;
-
-}
+    }
 
 
 h4 {
@@ -125,6 +120,7 @@ h4 {
     text-shadow: .70px .70px rgba(0, 0, 0.1);
 
 }
+
 
 .reg_form {
     min-height: 75vh;
@@ -493,19 +489,23 @@ footer p {
     }
 
      /*======================== Greeting ===============================*/
-    header h3 span {
-        margin-top: 1.5rem;
-}
-     /*======================== Boxex ===============================*/
+
+     header h3 span {
+        margin-top: 2rem;
+        border: 2px solid blue;
+        width: 10rem;
+     }
+
+     /*======================== BOXES ===============================*/
     .box {
         max-height: auto; /*20rem; */
         max-width: 20rem; /* 20rem; */
-}
+    }
 
     .box_four {
         max-height: auto; /* 20rem; */
         max-width: 20rem;
-}
+    }
 
     .mood_box {
         margin: 0 0 0 16px;
@@ -548,7 +548,7 @@ footer p {
         padding: 1px 4px 1px 4px;
     }
 
-    /*========================= Boxex ================================*/
+    /*========================= BOXES ================================*/
     /*======================== HISTORY ===============================*/
 
     .table {
