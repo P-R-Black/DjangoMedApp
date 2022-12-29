@@ -51,7 +51,7 @@ def logout_user(request):
     return render(request, 'logout.html')
 
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def index_page(request, category_slug=None):
     sounds = Soundscape.objects.all()
     moods = Mood.objects.all()
@@ -59,7 +59,7 @@ def index_page(request, category_slug=None):
     return render(request, 'index.html', {'sounds': sounds, 'moods': moods})
 
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def meditate_page(request):
 
     user = request.user.id
@@ -73,7 +73,6 @@ def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 
-# @csrf_exempt
 def ajax_test(request):
     user = request.user
 
@@ -97,7 +96,7 @@ def ajax_test(request):
         return HttpResponseBadRequest('Invalid Request')
 
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def history_page(request):
     user_id = request.user.id
     user_history = UserSession.objects.filter(user_id=user_id).values()
@@ -105,6 +104,6 @@ def history_page(request):
     return render(request, 'history.html', {'user_history': user_history})
 
 
-@login_required(login_url='login')
+@login_required(login_url='login/')
 def attributes_page(request):
     return render(request, 'attributes.html')

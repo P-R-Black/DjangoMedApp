@@ -491,9 +491,8 @@ footer p {
      /*======================== Greeting ===============================*/
 
      header h3 span {
-        margin-top: 2rem;
-        border: 2px solid blue;
-        width: 10rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
      }
 
      /*======================== BOXES ===============================*/
@@ -587,7 +586,32 @@ footer p {
         font-weight: bold;
     }
     /*======================== HISTORY ===============================*/
+ }
 
 
+ @media(max-width:815px){
+    .main_section {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
 
-}
+    .box {
+        width: 40rem;
+    }
+
+
+    .table {
+        max-width: 95%;
+    }
+
+    .table td {
+        font-size: .75rem;
+    }
+
+    .table th {
+        font-size: .85rem;
+    }
+
+ }
